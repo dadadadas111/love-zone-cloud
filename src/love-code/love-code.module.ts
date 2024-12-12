@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { LoveCodeService } from './love-code.service';
+import { LoveCodeController } from './love-code.controller';
 
 @Module({
-  providers: [LoveCodeService]
+  controllers: [LoveCodeController],
+  providers: [LoveCodeService],
 })
 export class LoveCodeModule {}
