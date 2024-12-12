@@ -12,6 +12,8 @@ import { CacheModule, CacheStore } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-store';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { BullModule } from '@nestjs/bull';
+import { LoveCodeModule } from './love-code/love-code.module';
+import { MqttConsumerModule } from './mqtt-consumer/mqtt-consumer.module';
 
 @Module({
   imports: [
@@ -66,6 +68,8 @@ import { BullModule } from '@nestjs/bull';
     MongooseModule.forRoot(process.env.MONGODB_URI as string),
     UserModule,
     AuthModule,
+    LoveCodeModule,
+    MqttConsumerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
