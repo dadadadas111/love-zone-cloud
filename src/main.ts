@@ -11,7 +11,7 @@ async function bootstrap() {
       transport: Transport.MQTT,
       options: {
         url: process.env.MQTT_URL,
-        clientId: 'cloud-backend',
+        clientId: process.env.MQTT_CLIENT_ID,
         rejectUnauthorized: false,
         clean: true,
       },
@@ -20,7 +20,7 @@ async function bootstrap() {
       await app.startAllMicroservices()
     }
   } catch (error) {
-    // console.error('Error when start microservice', error)
+    console.error('Error when start microservice', error)
   }
   await app.listen(process.env.PORT || 3000);
 }
