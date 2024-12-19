@@ -12,8 +12,8 @@ async function bootstrap() {
       options: {
         url: process.env.MQTT_URL,
         clientId: process.env.MQTT_CLIENT_ID,
-        rejectUnauthorized: false,
-        clean: true,
+        // rejectUnauthorized: false,
+        // clean: true,
       },
     })
     if (!!microservice) {
