@@ -22,7 +22,7 @@ export class AuthService {
   async signUp(email: string, password: string) {
     const user = this.firebaseService.firebaseSignUp(email, password);
     // set to firebase that email is verified
-    await this.firebaseService.firebaseVerifyEmail(email);
+    // await this.firebaseService.firebaseVerifyEmail(email);
     return user;
   }
 
