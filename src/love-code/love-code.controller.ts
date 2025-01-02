@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { LoveCodeService } from './love-code.service';
 import { CreateLoveCodeDto } from './dto/create-love-code.dto';
 import { UpdateLoveCodeDto } from './dto/update-love-code.dto';
@@ -24,7 +32,7 @@ export class LoveCodeController {
 
   @Patch()
   update(@Body() updateLoveCodeDto: UpdateLoveCodeDto) {
-    return this.loveCodeService.update( updateLoveCodeDto);
+    return this.loveCodeService.update(updateLoveCodeDto);
   }
 
   @Delete(':id')

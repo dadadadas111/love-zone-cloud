@@ -5,11 +5,10 @@ import { UpdateLoveCodeDto } from './dto/update-love-code.dto';
 
 @Injectable()
 export class LoveCodeService {
-
   constructor(
     @Inject('CACHE_MANAGER')
     private cacheManager: Cache,
-  ) { }
+  ) {}
 
   async create(createLoveCodeDto: CreateLoveCodeDto) {
     const { code, email } = createLoveCodeDto;
@@ -31,7 +30,9 @@ export class LoveCodeService {
 
   async update(updateLoveCodeDto: UpdateLoveCodeDto) {
     const { code, email } = updateLoveCodeDto;
-    const dataInCache: string[] = await this.cacheManager.get(`love-code:${code}`);
+    const dataInCache: string[] = await this.cacheManager.get(
+      `love-code:${code}`,
+    );
     if (!dataInCache) {
       throw new BadRequestException('Code not found');
     }

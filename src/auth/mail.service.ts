@@ -14,7 +14,7 @@ export class MailService {
       html: this.formatEmailContent(`Your email verification code is ${code}`),
     });
   }
-  
+
   @Process('send-reset-password-email')
   async sendResetPasswordEmail(job) {
     const { email, code } = job.data;

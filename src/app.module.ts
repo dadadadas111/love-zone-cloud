@@ -14,6 +14,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { BullModule } from '@nestjs/bull';
 import { LoveCodeModule } from './love-code/love-code.module';
 import { MqttConsumerModule } from './mqtt-consumer/mqtt-consumer.module';
+import { MessageModule } from './message/message.module';
 
 @Module({
   imports: [
@@ -70,6 +71,7 @@ import { MqttConsumerModule } from './mqtt-consumer/mqtt-consumer.module';
     AuthModule,
     LoveCodeModule,
     MqttConsumerModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
