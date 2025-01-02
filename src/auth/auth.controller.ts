@@ -21,6 +21,11 @@ export class AuthController {
     return this.authService.signIn(email, password);
   }
 
+  @Post('exchange-refresh-token')
+  async exchangeRefreshToken(@Body('refreshToken') refreshToken: string) {
+    return this.authService.exchangeRefreshToken(refreshToken);
+  }
+
   @Post('reset-password')
   async resetPassword(@Body('email') email: string) {
     return this.authService.resetPassword(email);

@@ -57,6 +57,32 @@ export class FirebaseService {
     }
   }
 
+  async firebaseExchangeRefreshToken(refreshToken: string) {
+    // call to firebase auth api
+    try {
+      const apiKey = process.env.FIREBASE_API_KEY;
+      const url = `https://securetoken.googleapis.com/v1/token?key=${apiKey}`;
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+          grant_type: 'refresh_token',
+          refresh_token: refreshToken,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      if (data.error) {
+        throw new BadRequestException(data.error);
+      }
+      return data;
+    } catch (error) {
+      Logger.error(error, 'FirebaseService.firebaseExchangeRefreshToken');
+      throw new BadRequestException(error);
+    }
+  }
+
   async firebaseResetPassword(email: string) {
     // call to firebase auth api
     try {

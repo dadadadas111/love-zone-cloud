@@ -30,6 +30,10 @@ export class AuthService {
     return this.firebaseService.firebaseSignIn(email, password);
   }
 
+  async exchangeRefreshToken(refreshToken: string) {
+    return this.firebaseService.firebaseExchangeRefreshToken(refreshToken);
+  }
+
   async resetPassword(email: string) {
     // this send link for reset password
     return this.firebaseService.firebaseResetPassword(email);
