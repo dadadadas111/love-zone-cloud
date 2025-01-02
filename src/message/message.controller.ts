@@ -28,12 +28,16 @@ export class MessageController {
     @Query('offset') offset: number,
     @Query('search') search?: string,
   ) {
-    return await this.messageService.getMessages(
+    const messages = await this.messageService.getMessages(
       loveCode,
       limit,
       offset,
       search,
     );
+    return {
+      messages,
+      total: messages.length,
+    }
   }
 
   @Get(':id')
